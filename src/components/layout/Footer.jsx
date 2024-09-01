@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
   const link = [
     {
       label:'Home',
@@ -17,7 +18,7 @@ const Footer = () => {
 
     },
     {
-      label:'Contacts',
+      label:'Services',
       id:'#services', 
     },
     {
@@ -28,7 +29,7 @@ const Footer = () => {
   ]
   return (
     <>
-    <footer class="flex flex-col space-y-10 justify-center rounded-lg bg-[url('/img/background-3.png')] bg-cover bg-center">
+    <footer class="w-full h-full flex flex-col space-y-10 justify-center rounded-lg bg-[url('/img/background-3.png')] bg-cover bg-center">
     <div className="mx-auto max-w-5xl py-5">
     <div className="flex justify-center">
     <div className="logo"><strong style={{  fontFamily:'cursive' , fontStyle:'normal'}} 
@@ -67,7 +68,7 @@ const Footer = () => {
         <img src="https://img.icons8.com/fluent/30/000000/twitter.png" />
     </a>
 </div>
-<p class="text-center text-gray-500 py-5 font-medium">&copy; 2022 Company Ltd. All rights reservered.</p>
+<p class="text-center text-gray-500 py-5 font-medium">&copy; {currentYear} Company Ltd. All rights reservered.</p>
 </footer>
     </>
   )

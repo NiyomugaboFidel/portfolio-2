@@ -4,19 +4,21 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import Contacts from './pages/Contacts'
 import Footer from './components/layout/Footer'
-import './App.css'
 import Navbar from './components/layout/Navbar'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
     <>
-      <div className='w-[100%] px-[40px]'>
-       <Navbar />
+      <Toaster />
+      <Navbar />
+      <main className='w-[100%] '>
+    
        <Home />
        <About />
        <Projects />
        <Contacts />
-      </div>
+      </main>
       <Footer />
 
     </>

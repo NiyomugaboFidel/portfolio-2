@@ -1,89 +1,156 @@
-import React, { useState } from 'react'
-import Home from '../../pages/Home'
-import Contacts from '../../pages/Contacts'
-import About from '../../pages/About'
-import Projects from '../../pages/Projects'
-import { Link } from 'react-router-dom'
-import { Button } from '@material-tailwind/react'
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
+
+const menuItems = [
+  { id: "home", label: "Home", path: "/home" },
+  { id: "about", label: "About", path: "/about" },
+  { id: "projects", label: "Projects", path: "/projects" },
+  { id: "contacts", label: "Contacts", path: "/contacts" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
-    const handleRoute = (id) => {
-        const element = document.getElementById(id);
-        if(element){
-          element.scrollIntoView({behavior:'smooth'});
-        }
-      }
-      
+
+  const handleRoute = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleDownload = () => {
+    console.log("Downloading...");
+    toast.success("CV Downloading started.");
+  };
+
   return (
     <div>
-        <div className=' pt-5 hidden sm:block lg:block xl:block h-[10vh] w-full'>
-        <nav className='z-40 px-10 flex items-center justify-between w-full h-[60px]' >
-            <div className="logo"><strong style={{  fontFamily:'cursive' , fontStyle:'normal'}} className='bg-gray-300  text-black flex justify-center items-center border  border-black p-1 rounded-md'><img className='w-[40px] h-[40px]' src="/logo.svg" alt="" />
-            <span className='sm:hidden'>NI FIDELE</span></strong></div>
-          <ul className='flex justify-center items-center'>
-            <li className='px-5 text-center'><Link className='text-black font-semibold' to='/home' onClick={() => handleRoute('home')}>Home</Link></li>
-            <li className='px-5 text-center'><Link className='text-black font-semibold' to='/about' onClick={() => handleRoute('about')}>About</Link></li>
-            <li className='px-5 text-center'><Link className='text-black font-semibold' to='/projects' onClick={() => handleRoute('projects')}>Projects</Link></li>
-            <li className='px-5 text-center'><Link className='text-black font-semibold' to='/contacts' onClick={() => handleRoute('contacts')}>Contacts</Link></li>
-          
+      {/* Desktop Navigation */}
+      <div className=" relative flex lg:flex xl:flex  h-[10vh] w-full">
+        <nav className=" relative bg-gray-200  lg:bg-transparent z-40 px-5 md:px-10 flex items-center justify-between w-full h-[60px]">
+          <div className="logo">
+            <strong className="bg-gray-300 text-black flex items-center border border-black p-1 rounded-md">
+              <img
+                className="w-[30px] h-[30px] md:w-[40px] md:h-[40px]"
+                src="/logo.svg"
+                alt="Logo"
+              />
+              <span className="block ml-2">NI FIDELE</span>
+            </strong>
+          </div>
+          <ul className=" hidden  lg:flex items-center space-x-4">
+            {menuItems.map(({ id, label, path }) => (
+              <li key={id} className="lg:px-[20px]">
+                <Link
+                  className="text-black font-semibold hover:text-gray-700"
+                  to={path}
+                  onClick={() => handleRoute(id)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
-          <div className='cv flex'>
-             <Button variant='text' 
-              size='sm'
-              className=' bg-black hover:bg-[rgba(40,39,39,0.9)] text-white'
-               fullWidth>
-                Download CV
-             </Button>
-             <img className='w-[40px] h-[40px] ml-[8px]' src="/public/img/github.svg" alt="" />
+
+          <div className="hidden lg:flex items-center space-x-4">
+            <a
+              href="/FIDELE-CV.pdf"
+              className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800"
+              onClick={handleDownload}
+              download
+            >
+              Download CV
+            </a>
+            <img
+              className="w-[40px] h-[40px]"
+              src="/img/github.svg"
+              alt="GitHub"
+            />
+          </div>
+          <div className="flex w-[40px] h-full items-center justify-end lg:hidden">
+            <button
+              onClick={toggleMenu}
+              className=" p-1 w-full bg-gray-900 rounded-md border flex items-start justify-center transition-all ease-in-out duration-0"
+            >
+              {!isOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6 text-gray-100 "
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6 text-gray-100"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              )}
+            </button>
           </div>
         </nav>
-      </div>
-      {/* mobile phone nav */}
-       <div className='h-[100%]  bg-gray-800 sm:hidden lg:hidden xl:hidden'>
-       <nav className='container fixed bg-gray-800 px-5  w-full flex flex-col'>
-         <div className='flex justify-between  py-2 items-center w-full'>
-         <div className="logo"><strong style={{  fontFamily:'cursive' , fontStyle:'normal'}}
-          className='bg-gray-300 text-black flex justify-center items-center border  border-black p-1 rounded-md'>
-            <img className='w-[40px] h-[40px]' src="/logo.svg" alt="" />NI FID</strong></div>
-         <button onClick={toggleMenu} className="text-white focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-         </div>
-
-         
-
-       </nav>
-       <div className={`${isOpen ? 'block':'hidden'}  z-auto w-full pt-[35px] bg-gray-800`}>
-          <div className='fixed  bg-gray-800 w-full'>
-          <ul className='z-40'>
-            <li className='px-4 py-3 bg-gray-500 m-2'><Link className='text-black' to='/home' onClick={() => handleRoute('home')}>Home</Link></li>
-            <li className='px-4 py-3 bg-gray-500 m-2'><Link className='text-black' to='/about' onClick={() => handleRoute('about')}>About</Link></li>
-            <li className='px-4 py-3 bg-gray-500 m-2'><Link className='text-black' to='/projects' onClick={() => handleRoute('projects')}>Projects</Link></li>
-            <li className='px-4 py-3 bg-gray-500 m-2'><Link className='text-black' to='/contacts' onClick={() => handleRoute('contacts')}>Contacts</Link></li>
-          
+        <div
+          className={` ${isOpen ? 'top-[110%]' : 'top-[-700px]'} transition-all duration-500 ease-in-out h-full px-2 py-4 min-h-[400px] text-white   absolute  flex lg:hidden flex-col gap-[6px] items-center justify-start w-full  bg-gray-900 z-20`}
+        >
+          <ul className="flex flex-col gap-2 lg:hidden justify-start items-start w-full  ">
+            {menuItems.map(({ id, label, path }) => (
+              <li
+                key={id}
+                className=" hover:bg-gray-500 lg:px-[20px]  border border-gray-100 rounded-lg w-full p-2  "
+              >
+                <Link
+                  className="text-white font-semibold hover:text-gray-200"
+                  to={path}
+                  onClick={() => handleRoute(id)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
-          <div className='cv px-2 py-4'>
-             <Button variant='text' 
-              size='sm'
-              fullWidth
-              className=' bg-black hover:bg-[rgba(40,39,39,0.9)] text-black'
-               >
-                Download CV
-             </Button>
+          <div className="flex flex-col gap-2 justify-start w-full h-full items-start lg:hidden ">
+            <a
+              href="/FIDELE-CV.pdf"
+              className="w-full bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 border"
+              onClick={handleDownload}
+              download
+            >
+              Download CV
+            </a>
+            <button className="w-full bg-black rounded-lg p-1 border ">
+              <img
+                className="w-[30px] h-[30px] bg-white overflow-hidden rounded-full"
+                src="/img/github.svg"
+                alt="GitHub"
+              />
+            </button>
           </div>
-          </div>
-         </div>
-       </div>
+        </div>
+      </div>
     </div>
-   
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
