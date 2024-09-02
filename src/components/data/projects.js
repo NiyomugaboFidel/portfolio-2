@@ -1,19 +1,13 @@
 export const ProjectItems  = [
     {
-      desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidemmollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atquedignissimos Molestias explicabo corporis voluptatem',
-      name:'Lorem ipsum dolor sit amet',
-      image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhJB1Y6VP7niy8o6M1HM3ElVvqpBdm5RvS1GZ6eGhoiWjrQUMn-UezYv0AO-XNNkEH6s&usqp=CAU'
+      desc:"Micro AI is your go-to source for everything related to artificial intelligence. Discover the latest developments, research, and trends in AI technology. Whether you're looking for information on machine learning, neural networks, or AI applications, AI Hub provides comprehensive insights and resources to keep you informed and engaged with the evolving world of AI.",
+      name:'Micro AI',
+      link:'https://micro-ai-ten.vercel.app',
+      image:'/img/project-1.png',
     },  {
-      desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidemmollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atquedignissimos Molestias explicabo corporis voluptatem',
-      name:'Lorem ipsum dolor sit amet',
-      image:'https://cdn2.editmysite.com/images/landing-pages/global/home-com-forward/themes/design-s.png'
-    },  {
-      desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidemmollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atquedignissimos Molestias explicabo corporis voluptatem',
-      name:'Lorem ipsum dolor sit amet',
-      image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIodhiAkgwAK-ejV5pEz_dIBzwletpSSx6fIHl0CuJdYexof8BbxR8LmAIsO6WAUABBmk&usqp=CAU'
-    }, {
-      desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidemmollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atquedignissimos Molestias explicabo corporis voluptatem',
-      name:'Lorem ipsum dolor sit amet',
-      image:'https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/08/Empire-Flippers-an-online-business-marketplace.webp'
-    },
+      desc:"This project is a web application built with React, Tailwind CSS, and Framer Motion. It features a modern, responsive design using Tailwind CSS for styling, while React handles the component-based structure. Framer Motion is used to add smooth animations and interactive elements. The application operates entirely on the client side, with no backend required",
+      name:'nex-cent',
+      link:'https://nex-cent-jade.vercel.app',
+      image:'/img/project-2.png'
+    }
   ]

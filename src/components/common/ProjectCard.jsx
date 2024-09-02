@@ -22,7 +22,7 @@ const ProjectCard = ({ item }) => {
           </p>
 
           <a
-            href="#"
+            href={item.link}
             className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors duration-300"
           >
             Find out more

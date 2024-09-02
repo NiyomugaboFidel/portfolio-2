@@ -34,12 +34,8 @@ const Navbar = () => {
       <div className=" relative flex lg:flex xl:flex  h-[10vh] w-full">
         <nav className=" relative bg-gray-200  lg:bg-transparent z-40 px-5 md:px-10 flex items-center justify-between w-full h-[60px]">
           <div className="logo">
-            <strong className="bg-gray-300 text-black flex items-center border border-black p-1 rounded-md">
-              <img
-                className="w-[30px] h-[30px] md:w-[40px] md:h-[40px]"
-                src="/logo.svg"
-                alt="Logo"
-              />
+            <strong className=" text-black flex items-center p-1 rounded-md">
+           
               <span className="block ml-2">NI FIDELE</span>
             </strong>
           </div>
